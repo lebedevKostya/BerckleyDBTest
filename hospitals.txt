@@ -1,0 +1,5 @@
+123#Hospital №1#Pushkina street#8 800 555 35 35#20
+432#Hospital №2#Kukushkina street#9 900 666 46 46#25
+231#Hospital №3#Pushkina street#8 999 999 99 99#30
+
+

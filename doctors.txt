@@ -1,0 +1,16 @@
+1234#231#Ivanov Ivan#doctor1
+2345#432#Petrov Petr#doctor2
+3456#432#Sidorov Sidr#doctor4
+4567#123#Victorov Victor#doctor5
+5678#231#Shevlyakov Oleg#doctor6
+6789#123#Semenov Semen#doctor7
+7890#432#Васютин Васют#doctor8
+9876#123#Игорев Игорь#doctor9
+8765#231#Сергеев Сергей#doctor10
+7654#432#Викторов Виктор#doctor11
+6543#123#Nikolayev Николай#doctor12
+5432#231#Verishinin Vershin#doctor13
+4521#432#Penicilinkin Penicilin#doctor14
+3214#231#Amfetaminkin Amfetamin#doctor15
+
+
