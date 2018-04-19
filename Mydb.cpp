@@ -4,6 +4,7 @@
 
 
 
+
 // Class constructor. Requires a path to the location
 // where the database is located, and a database name
 Mydb::Mydb(std::string &path, std::string &dbName)

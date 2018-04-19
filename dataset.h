@@ -17,7 +17,7 @@ private:
     char databuf_[1000];
 
 
-
+//Геттеры и сеттеры
 public:
     inline void setDoctorId(std::string doctorId)
     {
@@ -55,7 +55,7 @@ public:
 
 
 
-    /* Initialize our data members */
+    /* Очищаем наш набор данных */
     void clear()
     {
         doctor_id_ = "";
@@ -65,7 +65,7 @@ public:
     }
 
 
-    // Default constructor
+    // Конструктор по умолчанию
     DataSet()
     {
         clear();
@@ -88,6 +88,7 @@ public:
         bufLen_ += doctorSpec_.size()+1;
     }
 
+    //складываем все данные в один непрерывный участок памяти
     char * getBuffer()
     {
         memset(databuf_, 0, 1000);

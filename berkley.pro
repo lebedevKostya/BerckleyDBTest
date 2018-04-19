@@ -8,12 +8,14 @@ CONFIG -= qt
 
 SOURCES += main.cpp \
     Mydb.cpp \
-    reader.cpp \
-    test.cpp
+    loader.cpp \
+    reader.cpp
 
 HEADERS += \
     Mydb.h \
-    dataset.h
+    dataset.h \
+    loader.h \
+    reader.h
 
 LIBS += -ldb_cxx
 

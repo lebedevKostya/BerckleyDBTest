@@ -1,50 +1,11 @@
-#include <iostream>
-#include <fstream>
-#include <cstdlib>
-
-#include "Mydb.h"
-#include "dataset.h"
-
-using namespace std;
+#include "reader.h"
 
 
 
-// Forward declarations
-int show_all_records(Mydb &doctorDB, Mydb &hospitalDB);
-int show_hospital(Mydb &hospitalDB, const char *hospital);
 
 
 
-int main ()
-{
-    std::string databaseHome("/home/konstantin/berkley/DataBase/");
-
-
-    std::string hDbName("hospitals.db");
-    std::string dDbName("doctors.db");
-
-
-    try
-    {
-        // Open all databases.
-        Mydb hospitalDB(databaseHome, hDbName);
-        Mydb doctorDB(databaseHome, dDbName);
-
-        show_all_records(doctorDB, hospitalDB);
-    } catch(DbException &e) {
-        std::cerr << "Error reading databases. " << std::endl;
-        return (e.get_errno());
-    } catch(std::exception &e) {
-        std::cerr << "Error reading databases. " << std::endl;
-        std::cerr << e.what() << std::endl;
-        return (-1);
-    }
-
-    return (0);
-}
-
-
-int show_all_records(Mydb &doctorDB, Mydb &hospitalDB)
+int Reader::show_all_records(Mydb &doctorDB, Mydb &hospitalDB)
 {
 
     // Get a cursor to the inventory db
@@ -76,13 +37,13 @@ int show_all_records(Mydb &doctorDB, Mydb &hospitalDB)
     return (0);
 }
 
-int show_hospital(Mydb &hospitalDB, const char *hospital)
+
+int Reader::show_hospital(Mydb &hospitalDB, const char *hospital)
 {
     Dbt data;
     HOSPITAL my_hospital;
 
     try {
-        // Set the search key to the hospital's name
         // hospital is explicitly cast to char * to stop a compiler
         // complaint.
         Dbt key((char *)hospital, (u_int32_t)strlen(hospital) + 1);
