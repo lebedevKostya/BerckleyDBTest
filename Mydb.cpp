@@ -4,54 +4,50 @@
 
 
 
-
-// Class constructor. Requires a path to the location
-// where the database is located, and a database name
+// Передаем конструктору адрес папки где
+//будет распологаться файл базы и имя файла базы
 Mydb::Mydb(std::string &path, std::string &dbName)
-    : db_(NULL, 0),               // Instantiate Db object
-      dbFileName_(path + dbName), // Database file name
-      cFlags_(DB_CREATE)          // If the database doesn't yet exist,
-                                  // allow it to be created.
+    : db_(NULL, 0),
+      dbFileName_(path + dbName),
+      cFlags_(DB_CREATE)
+
 {
     try
     {
-        // Redirect debugging information to std::cerr
-        db_.set_error_stream(&std::cerr);
-
-        // Open the database
+        // Открытие базы
         db_.open(NULL, dbFileName_.c_str(), NULL, DB_BTREE, cFlags_, 0);
     }
-    // DbException is not a subclass of std::exception, so we
-    // need to catch them both.
+    // DbException не является подклассом
+    //std :: exception, поэтому
     catch(DbException &e)
     {
-        std::cerr << "Error opening database: " << dbFileName_ << "\n";
+        std::cerr << "Ошибка при открытие: " << dbFileName_ << "\n";
         std::cerr << e.what() << std::endl;
     }
     catch(std::exception &e)
     {
-        std::cerr << "Error opening database: " << dbFileName_ << "\n";
+        std::cerr << "Ошибка при открытие: " << dbFileName_ << "\n";
         std::cerr << e.what() << std::endl;
     }
 }
 
+// Закрытие базы
 void Mydb::close()
 {
-    // Close the db
     try
     {
         db_.close(0);
-        std::cout << "Database " << dbFileName_
-                  << " is closed." << std::endl;
+        std::cout << "\nБаза " << dbFileName_
+                  << " закрыта." << std::endl;
     }
     catch(DbException &e)
     {
-        std::cerr << "Error closing database: " << dbFileName_ << "\n";
+        std::cerr << "Ошибка при закрытие: " << dbFileName_ << "\n";
         std::cerr << e.what() << std::endl;
     }
     catch(std::exception &e)
     {
-        std::cerr << "Error closing database: " << dbFileName_ << "\n";
+        std::cerr << "Ошибка при закрытие: " << dbFileName_ << "\n";
         std::cerr << e.what() << std::endl;
     }
 }

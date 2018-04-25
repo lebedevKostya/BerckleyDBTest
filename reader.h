@@ -5,18 +5,26 @@
 #include <cstdlib>
 
 #include "Mydb.h"
-#include "dataset.h"
+#include "doctor.h"
 
 class Reader
 {
 public:
 
     Reader(){}
-    ~Reader(){std::cout << "Объект считывателя разрушился" << std::endl;}
+    ~Reader(){}
 
     int show_all_records(Mydb &doctorDB, Mydb &hospitalDB);
 
     int show_hospital(Mydb &hospitalDB, const char *hospital);
+
+    int SearchData(Mydb &DB);
+
+    int puttingData(Mydb &DB);
+
+    int deleteData(Mydb &DB);
+    int replaceData(Mydb &DB);
+
 
 };
 

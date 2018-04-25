@@ -4,7 +4,7 @@
 #include <fstream>
 #include <cstdlib>
 
-#include "dataset.h"
+#include "doctor.h"
 #include "Mydb.h"
 
 
@@ -15,7 +15,7 @@ class Loader
 
 public:
     Loader(){}
-    ~Loader(){std::cout << "Объект загрузчика разрушился" << std::endl;}
+    ~Loader(){}
 
     void loadHospitalsDB(Mydb &hospitalsdb, std::string &hospitalsfile);
 

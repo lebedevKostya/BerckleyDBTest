@@ -5,7 +5,7 @@
 
 
 
-class DataSet
+class Doctor
 {
 
 private:
@@ -13,6 +13,8 @@ private:
     std::string doctor_code;
     std::string doctorName_;
     std::string doctorSpec_;
+
+
     size_t bufLen_;
     char databuf_[1000];
 
@@ -66,12 +68,12 @@ public:
 
 
     // Конструктор по умолчанию
-    DataSet()
+    Doctor()
     {
         clear();
     }
 
-    DataSet(void *buffer)
+    Doctor(void *buffer)
     {
         char *buf = (char *)buffer;
 
@@ -86,6 +88,14 @@ public:
 
         doctorSpec_ = buf + bufLen_;
         bufLen_ += doctorSpec_.size()+1;
+    }
+
+    Doctor(std::string doc_id, std::string doc_code, std::string doc_name, std::string doc_spec)
+        :doctor_id_(doc_id),
+         doctor_code(doc_code),
+         doctorName_(doc_name),
+         doctorSpec_(doc_spec)
+    {
     }
 
     //складываем все данные в один непрерывный участок памяти

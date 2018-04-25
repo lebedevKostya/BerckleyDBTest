@@ -13,9 +13,9 @@ SOURCES += main.cpp \
 
 HEADERS += \
     Mydb.h \
-    dataset.h \
     loader.h \
-    reader.h
+    reader.h \
+    doctor.h
 
 LIBS += -ldb_cxx
 

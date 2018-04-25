@@ -6,9 +6,8 @@
 
 
 void Loader::loadDoctorsDB(Mydb &doctorDB, std::string &doctorsFile)
-
 {
-    DataSet doctor;
+    Doctor doctor;
     std::string substring;
     size_t nextPound;
 
@@ -68,6 +67,7 @@ void Loader::loadHospitalsDB(Mydb &hospitalsdb, std::string &hospitalsfile)
                       << "'. Попробуйте снов" << std::endl;
         throw std::exception();
     }
+
     HOSPITAL my_hospital;
     while (!inFile.eof())
     {
